@@ -20,7 +20,9 @@ class App extends React.Component {
                 &nbsp;
                 ({b.count})
               </div>
-              <Pokeball radius={30} palette={b.colors} />
+              <a href={`http://bl.ocks.org/${b.login}`}>
+                <Pokeball radius={30} palette={b.colors} />
+              </a>
             </div>
           ))
         }

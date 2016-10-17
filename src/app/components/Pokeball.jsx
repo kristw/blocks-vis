@@ -1,8 +1,27 @@
 import { sum } from 'd3-array';
 import { scaleLinear } from 'd3-scale';
 import React from 'react';
+import * as d3 from 'd3';
 
 class Pokeball extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.handleMouseover = this.handleMouseover.bind(this);
+    this.handleMouseout = this.handleMouseout.bind(this);
+  }
+
+  handleMouseover() {
+    const jitter = Math.random() * 5;
+    const angle = Math.random() > 0.5 ? 30 : -30;
+    d3.select(this.g).transition()
+      .attr('transform', `scale(0.9)rotate(${angle + jitter})`);
+  }
+
+  handleMouseout() {
+    d3.select(this.g).transition()
+      .attr('transform', 'rotate(0)');
+  }
 
   render() {
     const r = this.props.radius || 100;
@@ -28,7 +47,14 @@ class Pokeball extends React.Component {
     }, 0);
 
     return (
-      <svg className="pokeball" width={r*2} height={r*2}>
+      <svg
+        className="pokeball"
+        width={r*2}
+        height={r*2}
+        onMouseOver={this.handleMouseover}
+        onMouseMove={this.handleMouseover}
+        onMouseOut={this.handleMouseout}
+      >
         <defs>
           <clipPath id="top-half">
             <path
@@ -37,6 +63,9 @@ class Pokeball extends React.Component {
             />
           </clipPath>
         </defs>
+        <g transform={`translate(${r},${r})`}>
+        <g ref={c => {this.g = c;}}>
+        <g transform={`translate(${-r},${-r})`}>
         <circle
           cx={r}
           cy={r}
@@ -111,6 +140,9 @@ class Pokeball extends React.Component {
           stroke="#222"
           strokeWidth={strokeWidth}
         />
+        </g>
+        </g>
+        </g>
       </svg>
     );
   }
