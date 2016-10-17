@@ -1,0 +1,84 @@
+{
+  "generator-doraemon": {
+    "doraemon:app": {
+      "type": "website",
+      "name": "blocks-vis",
+      "description": "blocks-vis's description",
+      "keywords": [
+        ""
+      ],
+      "authorName": "Krist Wongsuphasawat",
+      "authorEmail": "krist.wongz@gmail.com",
+      "authorUrl": "http://kristw.yellowpigz.com"
+    },
+    "doraemon:website": {
+      "name": "blocks-vis",
+      "description": "blocks-vis's description",
+      "keywords": [
+        ""
+      ],
+      "authorName": "Krist Wongsuphasawat",
+      "authorEmail": "krist.wongz@gmail.com",
+      "authorUrl": "http://kristw.yellowpigz.com",
+      "twitterHandle": "kristw",
+      "githubAccount": "kristw",
+      "libraries": [
+        "d3",
+        "d3kit"
+      ],
+      "year": 2016
+    }
+  },
+  "generator-summon": {
+    "summon:app": {
+      "name": "blocks-vis",
+      "devtools": [
+        "babel",
+        "browser-sync",
+        "webpack",
+        "karma",
+        "gulp"
+      ],
+      "linter": "eslint",
+      "extra": [
+        "version-hooks",
+        "gh-pages",
+        "sublime"
+      ]
+    },
+    "summon:github": {
+      "use-summon:github": true,
+      "name": "blocks-vis",
+      "githubAccount": "kristw"
+    },
+    "summon:babel": {
+      "use-summon:babel": true
+    },
+    "summon:browser-sync": {
+      "use-summon:browser-sync": true
+    },
+    "summon:webpack": {
+      "use-summon:webpack": true
+    },
+    "summon:karma": {
+      "use-summon:karma": true,
+      "testSpecPattern": "src/app/**/*.spec.js"
+    },
+    "summon:gulp": {
+      "use-summon:gulp": true
+    },
+    "summon:eslint": {
+      "use-summon:eslint": true
+    },
+    "summon:version-hooks": {
+      "use-summon:version-hooks": true
+    },
+    "summon:gh-pages": {
+      "use-summon:gh-pages": true
+    },
+    "summon:sublime": {
+      "use-summon:sublime": true,
+      "name": "blocks-vis"
+    }
+  }
+}
