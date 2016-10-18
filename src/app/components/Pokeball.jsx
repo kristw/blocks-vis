@@ -31,18 +31,18 @@ class Pokeball extends React.Component {
     const littleRadius = r * 0.143;
     const bandThickness = r * 0.3;
 
-    const colors = this.props.palette.slice(0,5).reverse();
-    const totalWeight = sum(colors, c=>c.weight);
+    const colors = this.props.palette.slice(0, 5).reverse();
+    const totalWeight = sum(colors, c => c.weight);
     const scale = scaleLinear()
       .domain([0, totalWeight])
-      .range([0, r*2]);
+      .range([0, r * 2]);
     const shades = [];
     colors.reduce((prev, c) => {
       const width = scale(c.weight);
       shades.push({
         x: prev,
         color: c.color,
-        width
+        width,
       });
       return prev + width;
     }, 0);
@@ -50,8 +50,8 @@ class Pokeball extends React.Component {
     return (
       <svg
         className="pokeball"
-        width={r*2}
-        height={r*2}
+        width={r * 2}
+        height={r * 2}
         onMouseOver={this.handleMouseover}
         onMouseMove={this.handleMouseover}
         onMouseOut={this.handleMouseout}
@@ -59,13 +59,13 @@ class Pokeball extends React.Component {
         <defs>
           <clipPath id="top-half">
             <path
-              d={`M 0,${r} A ${r},${r} 0, 0 1 ${r*2} ${r}`}
+              d={`M 0,${r} A ${r},${r} 0, 0 1 ${r * 2} ${r}`}
               fill="blue"
             />
           </clipPath>
         </defs>
         <g transform={`translate(${r},${r})`}>
-          <g ref={c => {this.g = c;}}>
+          <g ref={c => { this.g = c; }}>
             <g transform={`translate(${-r},${-r})`}>
               <circle
                 cx={r}
@@ -76,30 +76,30 @@ class Pokeball extends React.Component {
               <g clipPath="url(#top-half)">
                 <rect
                   fill={this.props.palette[0].color}
-                  width={r*2}
+                  width={r * 2}
                   height={r}
                 />
                 {
-                  shades.map((s,i)=>{
+                  shades.map((s, i) => {
                     return (
                       <rect
-                        key={'l'+i}
-                        x={s.x/2}
+                        key={'l' + i}
+                        x={s.x / 2}
                         fill={s.color}
-                        width={s.width/2}
+                        width={s.width / 2}
                         height={r}
                       />
                     );
                   })
                 }
                 {
-                  shades.reverse().map((s,i)=>{
+                  shades.reverse().map((s, i) => {
                     return (
                       <rect
-                        key={'r'+i}
-                        x={r*2 - s.x/2 - s.width/2}
+                        key={'r' + i}
+                        x={r * 2 - s.x / 2 - s.width / 2}
                         fill={s.color}
-                        width={s.width/2}
+                        width={s.width / 2}
                         height={r}
                       />
                     );
@@ -107,9 +107,9 @@ class Pokeball extends React.Component {
                 }
               </g>
               <rect
-                x={strokeWidth/2}
-                y={r-bandThickness/2}
-                width={r*2 - strokeWidth}
+                x={strokeWidth / 2}
+                y={r - bandThickness / 2}
+                width={r * 2 - strokeWidth}
                 height={bandThickness}
                 fill="#222"
               />
@@ -136,7 +136,7 @@ class Pokeball extends React.Component {
               <circle
                 cx={r}
                 cy={r}
-                r={r - strokeWidth/2}
+                r={r - strokeWidth / 2}
                 fill="none"
                 stroke="#222"
                 strokeWidth={strokeWidth}

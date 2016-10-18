@@ -33,7 +33,7 @@ const groups = _(blocks)
         '#ff0000',
         '#d2b48c',
         // '#008000',
-      ].indexOf(c.color) === -1)
+      ].indexOf(c.color) === -1),
     };
   })
   .values()
