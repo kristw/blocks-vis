@@ -37,7 +37,7 @@ class Pokeball extends React.Component {
       .domain([0, totalWeight])
       .range([0, r*2]);
     const shades = [];
-    colors.reduce((prev, c)=>{
+    colors.reduce((prev, c) => {
       const width = scale(c.weight);
       shades.push({
         x: prev,
@@ -65,84 +65,84 @@ class Pokeball extends React.Component {
           </clipPath>
         </defs>
         <g transform={`translate(${r},${r})`}>
-        <g ref={c => {this.g = c;}}>
-        <g transform={`translate(${-r},${-r})`}>
-        <circle
-          cx={r}
-          cy={r}
-          r={r}
-          fill="#f2f2f2"
-        />
-        <g clipPath="url(#top-half)">
-          <rect
-            fill={this.props.palette[0].color}
-            width={r*2}
-            height={r}
-          />
-          {
-            shades.map((s,i)=>{
-              return (
+          <g ref={c => {this.g = c;}}>
+            <g transform={`translate(${-r},${-r})`}>
+              <circle
+                cx={r}
+                cy={r}
+                r={r}
+                fill="#f2f2f2"
+              />
+              <g clipPath="url(#top-half)">
                 <rect
-                  key={'l'+i}
-                  x={s.x/2}
-                  fill={s.color}
-                  width={s.width/2}
+                  fill={this.props.palette[0].color}
+                  width={r*2}
                   height={r}
                 />
-              );
-            })
-          }
-          {
-            shades.reverse().map((s,i)=>{
-              return (
-                <rect
-                  key={'r'+i}
-                  x={r*2 - s.x/2 - s.width/2}
-                  fill={s.color}
-                  width={s.width/2}
-                  height={r}
-                />
-              );
-            })
-          }
-        </g>
-        <rect
-          x={strokeWidth/2}
-          y={r-bandThickness/2}
-          width={r*2 - strokeWidth}
-          height={bandThickness}
-          fill="#222"
-        />
-        <circle
-          cx={r}
-          cy={r}
-          r={innerRadius}
-          fill="#f2f2f2"
-        />
-        <circle
-          cx={r}
-          cy={r}
-          r={littleRadius}
-          fill="#999"
-        />
-        <circle
-          cx={r}
-          cy={r}
-          r={innerRadius}
-          fill="none"
-          stroke="#000"
-          strokeWidth={strokeWidth}
-        />
-        <circle
-          cx={r}
-          cy={r}
-          r={r - strokeWidth/2}
-          fill="none"
-          stroke="#222"
-          strokeWidth={strokeWidth}
-        />
-        </g>
-        </g>
+                {
+                  shades.map((s,i)=>{
+                    return (
+                      <rect
+                        key={'l'+i}
+                        x={s.x/2}
+                        fill={s.color}
+                        width={s.width/2}
+                        height={r}
+                      />
+                    );
+                  })
+                }
+                {
+                  shades.reverse().map((s,i)=>{
+                    return (
+                      <rect
+                        key={'r'+i}
+                        x={r*2 - s.x/2 - s.width/2}
+                        fill={s.color}
+                        width={s.width/2}
+                        height={r}
+                      />
+                    );
+                  })
+                }
+              </g>
+              <rect
+                x={strokeWidth/2}
+                y={r-bandThickness/2}
+                width={r*2 - strokeWidth}
+                height={bandThickness}
+                fill="#222"
+              />
+              <circle
+                cx={r}
+                cy={r}
+                r={innerRadius}
+                fill="#f2f2f2"
+              />
+              <circle
+                cx={r}
+                cy={r}
+                r={littleRadius}
+                fill="#999"
+              />
+              <circle
+                cx={r}
+                cy={r}
+                r={innerRadius}
+                fill="none"
+                stroke="#000"
+                strokeWidth={strokeWidth}
+              />
+              <circle
+                cx={r}
+                cy={r}
+                r={r - strokeWidth/2}
+                fill="none"
+                stroke="#222"
+                strokeWidth={strokeWidth}
+              />
+            </g>
+          </g>
         </g>
       </svg>
     );

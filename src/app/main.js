@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import * as d3 from 'd3';
 import Pokeball from './components/Pokeball.jsx';
 
-const formatPercent = d3.format('.1%');
-
 class App extends React.Component {
   render() {
     const { blocks } = this.props;
@@ -32,12 +30,10 @@ class App extends React.Component {
 }
 
 d3.json('data/processed/colors.json', (error, blocks) => {
-
   ReactDOM.render(
     <App blocks={blocks}/>,
     document.getElementById('app')
   );
-
 });
 
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
