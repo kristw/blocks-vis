@@ -56,6 +56,7 @@ const groups = _(blocks)
         '#00ff00',
         '#ff0000',
         '#d2b48c',
+        // '#008000',
       ].indexOf(c.color)===-1)
     };
   })

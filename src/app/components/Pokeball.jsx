@@ -15,6 +15,7 @@ class Pokeball extends React.Component {
     const jitter = Math.random() * 5;
     const angle = Math.random() > 0.5 ? 30 : -30;
     d3.select(this.g).transition()
+      .duration(200)
       .attr('transform', `scale(0.9)rotate(${angle + jitter})`);
   }
 
