@@ -9,10 +9,10 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create config
 var config = {
   entry: {
-    'main': './src/app/main.js'
+    'app/main': './src/app/main.js',
   },
   output: {
-    path: path.join(__dirname, 'dist/app'),
+    path: path.join(__dirname, 'dist'),
     filename: '[name].js'
   },
   module: {
